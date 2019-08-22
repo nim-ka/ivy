@@ -9,6 +9,7 @@ EXEC_NAME ?= ivycube
 OBJS = main.o cubestate.o algorithm.o solver.o scrambler.o
 
 $(BUILD_DIR)/%.o: %.c
+	@mkdir -p $(BUILD_DIR)
 	$(CC) -I. -c -o $@ $< $(CFLAGS)
 
 $(BUILD_DIR)/$(EXEC_NAME): $(foreach file,$(OBJS),$(BUILD_DIR)/$(file))
